@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/7592e487ad.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/style.css" />
+    <title>Animated Toast Notification</title>
+  </head>
+  <body>
+    <div class="toast">
+      <div class="toast-content">
+        <i class="fas fa-solid fa-check check"></i>
+        <div class="message">
+          <span class="text text-1">Sucess</span>
+          <span class="text text-2">You changes has been saved</span>
+        </div>
+      </div>
+      <i class="fa-solid fa-xmark close"></i>
+      <div class="progres"></div>
+    </div>
+    <button>Show Toast</button>
+
+    <script>
+      const button = document.querySelector("button"),
+        toast = document.querySelector(".toast"),
+        closeIcon = document.querySelector(".close"),
+        progress = document.querySelector(".progres");
+      button.addEventListener("click", () => {
+        toast.classList.add("active");
+        progress.classList.add("active");
+
+        setTimeout(() => {
+          toast.classList.remove(".");
+        }, 5000);
+        setTimeout(() => {
+          progress.classList.remove(".active");
+        }, 5300);
+      });
+      closeIcon.addEventListener("click", () => {
+        toast.classList.remove("active");
+        setTimeout(() => {
+          progress.classList.remove("active");
+        }, 300);
+      });
+    </script>
+  </body>
+</html>
